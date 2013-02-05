@@ -1,0 +1,11 @@
+#!/bin/bash
+
+INSTALLER_DIR=/opt/intu/simple_deploy
+
+rm -f /usr/bin/simple_deploy
+
+ln -sf $INSTALLER_DIR/bin/simple_deploy /usr/bin
+
+echo "Thank you for installing Simple Deploy!"
+
+exit 0
