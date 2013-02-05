@@ -1,5 +1,5 @@
 name "simple_deploy"
-version "0.10.0"
+version "0.6.6"
 
 dependencies ["libxslt", "libxml2", "rubygems", "ruby"]
 
