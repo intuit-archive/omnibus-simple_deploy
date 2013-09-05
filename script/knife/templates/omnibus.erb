@@ -24,7 +24,7 @@ yum install -y --quiet intu-ruby git s3cmd rpm-build
 gem install bundler -v 1.2.2 --no-ri --no-rdoc --quiet
 
 # Clone The Repo
-git clone --quiet https://github.com/intuit/omnibus-simple_deploy.git /var/tmp/omnibus-simple_deploy
+git clone --quiet https://github.com/intuit/omnibus-simple_deploy.git --branch version_argument /var/tmp/omnibus-simple_deploy
 
 # Change directory to build cloned repo
 cd /var/tmp/omnibus-simple_deploy
@@ -38,6 +38,6 @@ bundle exec rake projects:simple_deploy
 # Upload RPM to Omnibus package bucket
 for rpm in $(ls -d /var/cache/omnibus/pkg/simple_deploy*.rpm); do
   echo "Upload $rpm to s3://intu-omnibus-packages-us-west-1"
-  s3cmd --no-progress sync $rpm s3://intu-omnibus-packages-us-west-1/
+#  s3cmd --no-progress sync $rpm s3://intu-omnibus-packages-us-west-1/
 done
 '
