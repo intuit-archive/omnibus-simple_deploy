@@ -1,5 +1,5 @@
 name "simple_deploy"
-version "0.6.6"
+version ENV['version']
 
 dependencies ["libxslt", "libxml2", "rubygems", "ruby"]
 
