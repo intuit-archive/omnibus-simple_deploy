@@ -17,6 +17,10 @@ access_key = <%= "#{ENV['AWS_ACCESS_KEY_ID']}" %>
 secret_key = <%= "#{ENV['AWS_SECRET_ACCESS_KEY']}" %>
 EOS
 
+# Set version for build
+export version = <%= "#{ENV['version']}" %>
+export iteration = <%= "#{ENV['iteration']}" %>
+
 # Install Required RPMs
 yum install -y --quiet intu-ruby git s3cmd rpm-build
 
