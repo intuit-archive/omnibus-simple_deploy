@@ -1,6 +1,6 @@
 bash -c '
 # Exit On Error
-set -e
+set -ex
 
 # Add Intu Repo (For Ruby and S3cmd RPMs)
 cat > /etc/yum.repos.d/intu-packages-us-west-1.repo << EOS
@@ -18,8 +18,8 @@ secret_key = <%= "#{ENV['AWS_SECRET_ACCESS_KEY']}" %>
 EOS
 
 # Set version for build
-export version = <%= "#{ENV['version']}" %>
-export iteration = <%= "#{ENV['iteration']}" %>
+export version=<%= "#{ENV['version']}" %>
+export iteration=<%= "#{ENV['iteration']}" %>
 
 # Install Required RPMs
 yum install -y --quiet intu-ruby git s3cmd rpm-build
