@@ -6,7 +6,14 @@ This contains the skelton for building Omnibus Simple Deploy packages.
 
 To build the Simple Deploy RPM on the local system:
 
-    bundle exec rake projects:simple_deploy
+* The environment variables for version and iteration must be set,
+  the version will correspond to gem version being pulled down
+  and will result in the package version being created. Iteration only corresponds
+  to the rpm version iteration.
+
+        export version=0.11.0
+        export iteration=1
+        bundle exec rake projects:simple_deploy
 
 ## Continuous Integration
 
