@@ -33,11 +33,17 @@ git clone --quiet https://github.com/intuit/omnibus-simple_deploy.git /var/tmp/o
 # Change directory to build cloned repo
 cd /var/tmp/omnibus-simple_deploy
 
-# Install Bundle
-bundle install --quiet
+# Use appropriate build branch if passed via Jenkins UI
+branch=<%= "#{ENV['GIT_BRANCH']}" %>
+if [ -n "$branch" ];then
+  git checkout --track origin/${branch}
+fi
 
-# Build simple_deploy RPM
-bundle exec rake projects:simple_deploy
+# Install Bundle
+bundle install --quiet --binstubs
+
+# Build s3cmd RPM
+bin/omnibus build project simple_deploy
 
 # Upload RPM to Omnibus package bucket
 for rpm in $(ls -d /var/cache/omnibus/pkg/simple_deploy*.rpm); do
