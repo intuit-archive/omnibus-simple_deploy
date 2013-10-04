@@ -47,7 +47,7 @@ bin/omnibus build project simple_deploy
 
 # Upload RPM to Omnibus package bucket
 for rpm in $(ls -d /var/cache/omnibus/pkg/simple_deploy*.rpm); do
-  echo "Upload $rpm to s3://intu-omnibus-packages-us-west-1"
-  s3cmd --no-progress sync $rpm s3://intu-omnibus-packages-us-west-1/
+  echo "Upload $rpm to s3://intu-cap-omnibus-packages-us-west-1"
+  s3cmd --no-progress sync $rpm s3://intu-cap-omnibus-packages-us-west-1/
 done
 '
