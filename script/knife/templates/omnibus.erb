@@ -25,7 +25,7 @@ export iteration=<%= "#{ENV['iteration']}" %>
 yum install -y --quiet intu-ruby git s3cmd rpm-build
 
 # Install bundler gem
-gem install bundler -v 1.2.2 --no-ri --no-rdoc --quiet
+gem install bundler -v 1.6.2 --no-ri --no-rdoc --quiet
 
 # Clone The Repo
 git clone --quiet https://github.com/intuit/omnibus-simple_deploy.git /var/tmp/omnibus-simple_deploy
@@ -40,7 +40,7 @@ if [ -n "$branch" ] && [ "$branch" != "master" ];then
 fi
 
 # Install Bundle
-bundle install --quiet --binstubs
+bundle install --quiet --binstubs --without jenkins
 
 # Build s3cmd RPM
 bin/omnibus build project simple_deploy
