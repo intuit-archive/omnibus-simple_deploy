@@ -40,7 +40,7 @@ if [ -n "$branch" ] && [ "$branch" != "master" ];then
 fi
 
 # Install Bundle
-bundle install --quiet --binstubs
+bundle install --quiet --binstubs --without jenkins
 
 # Build s3cmd RPM
 bin/omnibus build project simple_deploy
